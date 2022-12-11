@@ -103,10 +103,10 @@ function List(props) {
         try {
             const response = await axios({
                 method: "get", //telling axios to get the data.
-                url: "postgres://pokemon_e8l3_user:eGMGhgMU2UqzyIiwXsoaJzx9FqgT8dxa@dpg-ceb4ngpa6gdichjusbc0-a.oregon-postgres.render.com/pokemon_e8l3"
-                // headers: {
-                //     "User-Id": "ChadASDF1234"
-                // }
+                url: "https://web-app-pokemon.herokuapp.com/pokemon",
+                headers: {
+                    "User-Id": "ChadASDF1234"
+                }
             });
             //on success, we store the response data into "pokemons"
             setPokemons(response.data);
@@ -121,12 +121,10 @@ function List(props) {
         try {
             await axios({
                 method: "delete", //telling axios to delete the data.
-                url:
-                    "postgres://pokemon_e8l3_user:eGMGhgMU2UqzyIiwXsoaJzx9FqgT8dxa@dpg-ceb4ngpa6gdichjusbc0-a.oregon-postgres.render.com/pokemon_e8l3" +
-                    id
-                // headers: {
-                //     "User-Id": "ChadASDF1234"
-                // }
+                url: "https://web-app-pokemon.herokuapp.com/pokemon/" + id,
+                headers: {
+                    "User-Id": "ChadASDF1234"
+                }
             });
         } catch (e) {
             sendAlert();
